@@ -6,9 +6,10 @@
 	}
 
 	$uname = $_GET['q'];
-	$uname = mysql_real_escape_string($uname);
-	$query = "DELETE FROM username_store WHERE username=";
-	$query .= "$uname;";
+	$uname = mysqli_real_escape_string($con, $uname);
+	$query = "DELETE FROM username_store WHERE username=".'"';
+	$query .= "$uname";
+  $query .= '";';
 	mysqli_query($con,$query);
 	mysqli_close($con);
 ?>
