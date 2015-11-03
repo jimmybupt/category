@@ -20,7 +20,7 @@ function printTable() {
 }
 
 function deleteRow() {
-	var uname = document.getElementByID("deleteUName").value;
+	var uname = document.getElementById("deleteUName").value;
 	if(uname == "") {
 		return;
 	}
@@ -35,8 +35,8 @@ function deleteRow() {
 }
 
 function addRow() {
-	var uname = document.getElementByID("addUName").value;
-	var cname = document.getElementByID("addCName").value;
+	var uname = document.getElementById("addUName").value;
+	var cname = document.getElementById("addCName").value;
 	if(uname == "" || cname == "") {
 		return;
 	}
@@ -63,12 +63,12 @@ printTable();
 </br>
 <form id="deleteRow">
 	<input type="text" id="deleteUName" name="deleteUName">
-	<input type="submit" value="Commit">
+	<input type="button" value="Commit" onclick="deleteRow()">
 </form>
 </br>
 <form id="addRow">
 	<input type="text" id="addUName" name="addUName">
 	<input type="text" id="addCName" name="addCName">
-	<input type="submit" value="Commit">
+	<input type="button" value="Commit" onclick="addRow()">
 </body>
 </html>
