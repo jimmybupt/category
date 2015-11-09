@@ -46,3 +46,34 @@ function addRow() {
 	xmlhttp.send();
 	printTable();
 }
+
+(function(app, Marionette){
+
+  // create a new Marionette View
+  var View = Marionette.ItemView.extend({
+    template: function(){
+      return 'Hello World!';
+    }
+  });
+
+  // create a new application Route (Controller)
+  var CustomRoute = app.Route.extend({
+    render: function(){
+      var container = app.layout.getRegion('main');
+      var view = new View();
+      container.show(view);
+    }
+  });
+
+  // add the route to the application Router
+  var CustomRouter = app.Router.extend({
+    routes: {
+      'my-custom-page' : function(){
+        return new CustomRoute();
+      }
+    }
+  });
+
+  new CustomRouter();
+
+}(POS, Marionette));
